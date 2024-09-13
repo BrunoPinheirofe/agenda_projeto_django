@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="{% static "global/css/styles.css" %}">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Teste</h1>
+    <main class = 'content'>
+        {% block content %}{% endblock content %}
+    </main>
+    
 </body>
 </html>
