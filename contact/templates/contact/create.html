@@ -3,6 +3,7 @@
 <div class="form-wrapper">
   <h2>Contact</h2>
   
+
   <form 
     action="{% url "contact:create" %}"
     method="POST"
@@ -10,16 +11,30 @@
   >
   {% csrf_token %}
     <div class="form-content">
+      {% for field in form %}
       <div class="form-group">
-        <label for="id_first_name">LABEL</label>
-        <input type="text" name="first_name" maxlength="255" id="id_first_name">
+        <label for="{{field.id_for_label}}">{{field.label}}</label>
+        {{field}}
+        {{field.errors}}
+        {% endfor %}
       </div>
     </div>
+    {% if form.non_field_errors %}
     <div class="form-content">
       <div class="form-group">
-        <button class="btn" type="submit">Send</button>
+        <div class="message error">
+          {{ form.non_field_errors }}
+        </div>
       </div>
     </div>
-  </form>
+  {% endif %}
+  <div class="form-content">
+    <div class="form-group">
+      <button class="btn" type="submit">Send</button>
+    </div>
+  </div>
+
+</form>
 </div>
+
 {% endblock content %}
