@@ -15,6 +15,12 @@
       <div class="form-group">
         <label for="{{field.id_for_label}}">{{field.label}}</label>
         {{field}}
+        {% if field.help_text %}
+        <p class = "help_text">
+          {{field.help_text}}
+        </p>
+          
+        {% endif %}
         {{field.errors}}
         {% endfor %}
       </div>
