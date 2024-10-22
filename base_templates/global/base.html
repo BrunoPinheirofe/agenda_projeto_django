@@ -8,6 +8,8 @@
 
 <body>
     {% include "global/partials/_header.html" %}
+    {% include "global/partials/_messages.html" %}
+    
     <main class = 'content'>
         {% block content %}{% endblock content %}
         {% include "global/partials/_pagination.html" %}
